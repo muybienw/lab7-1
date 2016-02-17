@@ -11,12 +11,7 @@ $(document).ready(function() {
 function initializePage() {
 	// your code here
 
-	// Feature detects Navigation Timing API support.
-	if (window.performance) {
-		// Sends the hit, passing `performance.now()` as the timing value.
-		ga('send', 'timing', 'JS Dependencies', 'load', performance.now());
-	}
-
+	var startTime = new Date().getTime();
 
 	$('.likeBtn').click(function(e){
 		e.preventDefault();
@@ -24,10 +19,10 @@ function initializePage() {
 
 		ga("send", "event", 'like', 'click');
 
-		// Feature detects Navigation Timing API support.
-		if (window.performance) {
-			// Sends the hit, passing `performance.now()` as the timing value.
-			ga('send', 'timing', 'JS Dependencies', 'hit like btn', performance.now());
-		}
+		//
+		var endTime = new Date().getTime();
+		var timeSpent = endTime - startTime;
+
+		ga('send', 'timing', 'time_spent', 'hit_like', timeSpent);
 	});
 }
