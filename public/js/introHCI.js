@@ -19,7 +19,6 @@ function initializePage() {
 
 		ga("send", "event", 'like', 'click');
 
-		//
 		var endTime = new Date().getTime();
 		var timeSpent = endTime - startTime;
 
